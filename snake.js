@@ -6,8 +6,8 @@ var speed = {
   y: 0
 }
 var GAME_SPEED = 100,
-    SPEED_STEP = 10,
-    MAX_SPEED = 10;
+    SPEED_STEP = 2,
+    MAX_SPEED = 50;
 
 var playing = true;
 var fruit;
