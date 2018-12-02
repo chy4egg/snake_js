@@ -5,6 +5,7 @@ document.onkeydown = function(e) {
     40: 'down',
     39: 'right'
   };
+
   var dx = 0, dy = 0;
 
   switch(keys[e.keyCode]) {
@@ -24,7 +25,11 @@ document.onkeydown = function(e) {
       return;
   }
 
-  speed = {
+  if (dx * speed.x != 0 || dy * speed.y != 0) {
+    return;
+  }
+
+  newSpeed = {
     x: dx,
     y: dy
   }

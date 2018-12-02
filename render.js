@@ -3,17 +3,13 @@ var BOX_W = W / COLS,
     BOX_H = H / ROWS;
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var speed = {
-  x: 1,
-  y: 0
-}
 
 function transformX(x) {
   return W * x / COLS;
 }
 
 function transformY(y) {
-  return H * (1 - y / ROWS);
+  return H * (1 - (y + 1) / ROWS);
 }
 
 function renderSnake() {
@@ -23,17 +19,34 @@ function renderSnake() {
     var xx = transformX(x),
         yy = transformY(y);
 
-    ctx.fillStyle = 'red';
+    if (playing) {
+      ctx.fillStyle = 'blue';
+    }
+    else {
+      ctx.fillStyle = 'red';
+    }
+
     ctx.fillRect(xx, yy, BOX_W, BOX_H);
     ctx.strokeStyle = 'black';
     ctx.strokeRect(xx, yy, BOX_W, BOX_H);
   }
 }
 
+function renderFruit() {
+  var xx = transformX(fruit.x),
+      yy = transformY(fruit.y);
+
+  ctx.fillStyle = 'green';
+  ctx.fillRect(xx, yy, BOX_W, BOX_H);
+  ctx.rectStyle = 'black';
+  ctx.strokeRect(xx, yy, BOX_W, BOX_H);
+}
+
 function render() {
-  ctx.clearRect(0,0,W,H);
+  ctx.clearRect(0, 0, W, H);
 
   renderSnake();
+  renderFruit();
 
   setTimeout(render, 17);
 }
