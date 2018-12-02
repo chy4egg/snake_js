@@ -4,5 +4,29 @@ document.onkeydown = function(e) {
     38: 'up',
     40: 'down',
     39: 'right'
+  };
+  var dx = 0, dy = 0;
+
+  switch(keys[e.keyCode]) {
+    case 'left':
+      dx = -1;
+      break;
+    case 'up':
+      dy = 1;
+      break;
+    case 'down':
+      dy = -1;
+      break;
+    case 'right':
+      dx = 1;
+      break;
+    default:
+      return;
   }
+
+  speed = {
+    x: dx,
+    y: dy
+  }
+
 };

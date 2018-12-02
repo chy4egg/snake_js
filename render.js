@@ -3,6 +3,10 @@ var BOX_W = W / COLS,
     BOX_H = H / ROWS;
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
+var speed = {
+  x: 1,
+  y: 0
+}
 
 function transformX(x) {
   return W * x / COLS;
@@ -20,9 +24,9 @@ function renderSnake() {
         yy = transformY(y);
 
     ctx.fillStyle = 'red';
-    ctx.fillRect(xx, BOX_W, yy, BOX_H);
+    ctx.fillRect(xx, yy, BOX_W, BOX_H);
     ctx.strokeStyle = 'black';
-    ctx.strokeRect(xx, BOX_W, yy, BOX_H);
+    ctx.strokeRect(xx, yy, BOX_W, BOX_H);
   }
 }
 
