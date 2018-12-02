@@ -1,6 +1,14 @@
-//here is out code
-;(function(){
+var ROWS = 50, COLS = 50;
+var snake = [];
+var SNAKE_INITIAL_LENGTH = 5;
 
-  console.log('here is our code!!!! lololo');
+function init() {
+  for (var i = 0; i < SNAKE_INITIAL_LENGTH; i++) {
+    snake.push({
+      x: Math.floor(COLS / 2) - i,
+      y: Math.floor(ROWS / 2)
+    });
+  }
+}
 
-}());
+init();
